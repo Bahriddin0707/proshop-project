@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
-import Product from "./Product";
+import Product from "../components/Product";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 
 function CartScreen() {
@@ -29,10 +29,15 @@ function CartScreen() {
     dispatch(removeFromCart({ ...product }));
   };
 
+  const checkOutHandler = () => {
+    navigate("/login?redirect=/shipping");
+  };
+
   return (
     <Row>
       <Col md={8}>
         <h2 style={{ marginBottom: "18px" }}>Shopping Cart</h2>
+
         {cartItems.length === 0 ? (
           <Message>
             Your cart is empty <Link to="/">Let's go back</Link>
@@ -101,12 +106,14 @@ function CartScreen() {
                   .toFixed(2)}
               </span>
             </ListGroup.Item>
+
             <ListGroup.Item>
               <Button
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
                 variant="success"
+                onClick={checkOutHandler}
               >
                 Proceed to Checkout
               </Button>
