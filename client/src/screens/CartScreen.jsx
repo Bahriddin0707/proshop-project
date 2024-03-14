@@ -18,7 +18,7 @@ import { addToCart, removeFromCart } from "../slices/cartSlice";
 function CartScreen() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cartItems, totalPrice } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const addToCartHandler = async (product, qty) => {
     dispatch(addToCart({ ...product, qty }));
