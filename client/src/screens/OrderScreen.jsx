@@ -103,7 +103,7 @@ function OrderScreen() {
   return isLoading ? (
     <Loader />
   ) : error ? (
-    <Message variant="warning" />
+    <Message variant="danger">{error.data.message}</Message>
   ) : (
     <>
       <h3>Order: {order._id}</h3>
@@ -209,9 +209,9 @@ function OrderScreen() {
                     <Loader />
                   ) : (
                     <div>
-                      <Button className="mb-3" onClick={onApproveTest}>
+                      {/*<Button className="mb-3" onClick={onApproveTest}>
                         Test Pay order
-                      </Button>
+                        </Button>*/}
                       <div>
                         <PayPalButtons
                           onApprove={onApprove}
