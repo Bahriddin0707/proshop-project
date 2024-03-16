@@ -110,7 +110,7 @@ function CartScreen() {
             <ListGroup.Item>
               <Button
                 type="button"
-                className="btn-block"
+                className="text-light"
                 disabled={cartItems.length === 0}
                 variant="success"
                 onClick={checkOutHandler}

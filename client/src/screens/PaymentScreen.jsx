@@ -45,7 +45,7 @@ function PaymentScreen() {
             />
           </Col>
         </Form.Group>
-        <Button variant="success" type="submit">
+        <Button className="text-light" variant="success" type="submit">
           Continue
         </Button>
       </Form>

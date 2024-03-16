@@ -101,7 +101,7 @@ function RegisterScreen() {
         <Button
           type="submit"
           variant="success"
-          className="mt-2"
+          className="mt-2 text-light"
           disabled={isLoading}
         >
           Sign Up

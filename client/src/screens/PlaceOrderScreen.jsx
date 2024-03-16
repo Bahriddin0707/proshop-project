@@ -148,9 +148,9 @@ function OrderScreen() {
 
               <ListGroup.Item>
                 <Button
+                  className="text-light"
                   variant="success"
                   type="button"
-                  className="btn-block"
                   disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}
                 >

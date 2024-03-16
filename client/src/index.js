@@ -16,6 +16,7 @@ import "./assets/styles/bootstrap.custom.css";
 import "./assets/styles/index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import AdminRoute from "./components/AdminRoute.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import ProductScreen from "./screens/ProductScreen.jsx";
@@ -26,6 +27,12 @@ import ShippingScreen from "./screens/ShippingScreen.jsx";
 import PaymentScreen from "./screens/PaymentScreen.jsx";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.jsx";
 import OrderScreen from "./screens/OrderScreen.jsx";
+import ProfileScreen from "./screens/ProfileScreen.jsx";
+import OrderListScreen from "./screens/admin/OrderListScreen.jsx";
+import ProductListScreen from "./screens/admin/ProductListScreen.jsx";
+import ProductEditScreen from "./screens/admin/ProductEditScreen.jsx";
+import UserListScreen from "./screens/admin/UserListScreen.jsx";
+import UserEditScreen from "./screens/admin/UserEditScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,11 +43,23 @@ const router = createBrowserRouter(
       <Route path="/login" element={<LoginScreen />} />
       <Route path="/register" element={<RegisterScreen />} />
 
+      <Route path="" element={<AdminRoute />}>
+        <Route path="/admin/orders" element={<OrderListScreen />} />
+        <Route path="/admin/products" element={<ProductListScreen />} />
+        <Route
+          path="/admin/products/:id/edit"
+          element={<ProductEditScreen />}
+        />
+        <Route path="/admin/users" element={<UserListScreen />} />
+        <Route path="/admin/users/:id/edit" element={<UserEditScreen />} />
+      </Route>
+
       <Route path="" element={<PrivateRoute />}>
         <Route path="/shipping" element={<ShippingScreen />} />
         <Route path="/payment" element={<PaymentScreen />} />
         <Route path="/order" element={<PlaceOrderScreen />} />
         <Route path="/order/:id" element={<OrderScreen />} />
+        <Route path="/profile" element={<ProfileScreen />} />
       </Route>
     </Route>
   )
