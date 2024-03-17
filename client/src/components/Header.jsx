@@ -1,7 +1,7 @@
 import { Container, Navbar, Nav, NavDropdown, Badge } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
-import logo from "../assets/logo.png";
+import logo from "../assets/icon-ecommerce.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCredentials } from "../slices/authSlice";
@@ -32,7 +32,8 @@ function Header() {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <img src={logo} alt="ProShopLogo" /> ProShop
+              <img src={logo} alt="eCommerce" style={{ width: "55px" }} />{" "}
+              eCommerce
             </Navbar.Brand>
           </LinkContainer>
 
