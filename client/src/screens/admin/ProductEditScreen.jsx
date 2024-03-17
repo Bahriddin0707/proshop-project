@@ -96,7 +96,7 @@ function ProductEditScreen() {
         {isLoading ? (
           <Loader />
         ) : error ? (
-          <Message>{error}</Message>
+          <Message>{error.data?.message}</Message>
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group className="mb-2" controlId="name">

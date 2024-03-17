@@ -142,7 +142,7 @@ function OrderScreen() {
 
               {error && (
                 <ListGroup.Item>
-                  <Message variant="warning">{error?.data?.message}</Message>
+                  <Message variant="warning">{error.data?.message}</Message>
                 </ListGroup.Item>
               )}
 

@@ -5,6 +5,7 @@ import logo from "../assets/icon-ecommerce.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCredentials } from "../slices/authSlice";
+import { resetCart } from "../slices/cartSlice";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import SearchBox from "./SearchBox";
 
@@ -20,6 +21,7 @@ function Header() {
     try {
       await logout().unwrap();
       dispatch(clearCredentials(null));
+      dispatch(resetCart());
       navigate("/login");
     } catch (err) {
       console.log(err);

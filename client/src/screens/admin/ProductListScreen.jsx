@@ -71,7 +71,7 @@ function ProductListScreen() {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message>{error}</Message>
+        <Message>{error.data?.message}</Message>
       ) : data.products && data.products.length > 0 ? (
         <Table striped responsive hover className="my-4">
           <thead>
