@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -12,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
-import Product from "../components/Product";
+
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 
 function CartScreen() {

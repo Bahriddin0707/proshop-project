@@ -9,7 +9,6 @@ import {
   useGetUsersQuery,
   useDeleteUserMutation,
 } from "../../slices/usersApiSlice";
-import { useEffect } from "react";
 
 function UserListScreen() {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();

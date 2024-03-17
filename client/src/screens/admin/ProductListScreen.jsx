@@ -1,8 +1,7 @@
 import { LinkContainer } from "react-router-bootstrap";
 import { Row, Col, Table, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
-import Loader from "../../components/Loader";
-import Message from "../../components/Message";
+import { useParams } from "react-router-dom";
 import { MdModeEditOutline, MdDeleteForever } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import {
@@ -11,8 +10,16 @@ import {
   useDeleteProductMutation,
 } from "../../slices/productsApiSlice";
 
+// Components
+import Loader from "../../components/Loader";
+import Message from "../../components/Message";
+import Paginate from "../../components/Paginate";
+
 function ProductListScreen() {
-  const { data: products, refetch, isLoading, error } = useGetProductsQuery();
+  const { pageNumber } = useParams();
+  const { data, refetch, isLoading, error } = useGetProductsQuery({
+    pageNumber,
+  });
 
   const [createProduct, { isLoading: loadingCreate }] =
     useCreateProductMutation();
@@ -65,7 +72,7 @@ function ProductListScreen() {
         <Loader />
       ) : error ? (
         <Message>{error}</Message>
-      ) : products && products.length > 0 ? (
+      ) : data.products && data.products.length > 0 ? (
         <Table striped responsive hover className="my-4">
           <thead>
             <tr>
@@ -79,9 +86,9 @@ function ProductListScreen() {
           </thead>
 
           <tbody>
-            {products &&
-              products.length > 0 &&
-              products.map((product, index) => {
+            {data.products &&
+              data.products.length > 0 &&
+              data.products.map((product, index) => {
                 return (
                   <tr key={index}>
                     <td>{product._id}</td>
@@ -118,6 +125,8 @@ function ProductListScreen() {
       ) : (
         <Message>There is no any product</Message>
       )}
+
+      <Paginate pages={data?.pages} page={data?.page} isAdmin={true} />
     </>
   );
 }

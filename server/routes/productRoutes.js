@@ -10,10 +10,11 @@ import {
   updateProduct,
   deleteProduct,
   createProductReview,
+  getTopProducts,
 } from "../controllers/productController.js";
 
 router.route("/").get(getAllProducts).post(protect, admin, createProduct);
-
+router.route("/top").get(getTopProducts);
 router
   .route("/:id")
   .get(getSingleProduct)
