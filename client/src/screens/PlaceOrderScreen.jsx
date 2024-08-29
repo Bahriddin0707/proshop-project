@@ -9,7 +9,7 @@ import CheckoutSteeps from "../components/CheckoutSteeps";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
 
-function OrderScreen() {
+function PlaceOrderScreen() {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -166,4 +166,4 @@ function OrderScreen() {
   );
 }
 
-export default OrderScreen;
+export default PlaceOrderScreen;
