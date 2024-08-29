@@ -37,7 +37,7 @@ function PlaceOrderScreen() {
       }).unwrap();
 
       dispatch(clearCartItems());
-      navigate(`/order/${response._id}`);
+      navigate(`/orders/${response._id}`);
     } catch (error) {
       toast.error(error?.data?.message);
     }
