@@ -22,7 +22,7 @@ function PaymentScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(savePaymentMethod(paymentMethod));
-    navigate("/order");
+    navigate("/placeorder");
   };
 
   return (
